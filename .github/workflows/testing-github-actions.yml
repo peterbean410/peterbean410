@@ -3,8 +3,18 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
   check-bats-version:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
     steps:
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          sleep 3600 & 
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+    
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
